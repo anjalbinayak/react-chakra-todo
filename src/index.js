@@ -5,6 +5,7 @@ import App from './App';
 
 import { ChakraProvider } from '@chakra-ui/react'
 
+if(!localStorage.getItem('tasks')) localStorage.setItem('tasks',JSON.stringify([]));
 
 ReactDOM.render(
   <ChakraProvider>

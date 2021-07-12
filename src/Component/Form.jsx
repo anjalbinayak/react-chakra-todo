@@ -3,12 +3,14 @@ import React from "react";
 import { Flex } from "@chakra-ui/layout";
 import { Input, Button, useToast } from "@chakra-ui/react";
 import { useState } from "react";
+import { addTask } from "../utils/storage";
 
 const Form = () => {
   const [taskName, setTaskName] = useState("");
   const toast = useToast();
 
-  function addTask() {
+  function handleCreateTask() {
+    addTask(taskName);
     toast({
       title: "Success",
       description: "New Task Created",
@@ -33,11 +35,11 @@ const Form = () => {
 
       <Button
         colorScheme="teal"
-        onClick={addTask}
+        onClick={handleCreateTask}
         disabled={taskName.length === 0}
         type="submit"
       >
-        Add{" "}
+        Add
       </Button>
     </Flex>
   );

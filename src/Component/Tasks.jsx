@@ -3,16 +3,13 @@ import { Flex } from "@chakra-ui/layout";
 import Task from "./Task";
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([
-    { id: 1, name: "Do HomeWork", status: "incomplete", date: Date.now() },
-    { id: 2, name: "Wash Dishes", status: "incomplete", date: Date.now() },
-    { id: 3, name: "Copulate with dogs", status: "complete", date: Date.now() },
-    { id: 4, name: "Read ", status: "complete", date: Date.now() },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // const tasks = [{ name: "Anjal" }];
-  }, []);
+    // setTasks(JSON.parse(localStorage.getItem("tasks")));
+  });
+
+  //this will be changed
 
   return (
     <Flex direction="column">

@@ -3,10 +3,13 @@ import { Button, useToast, Text } from "@chakra-ui/react";
 import { Flex, Box } from "@chakra-ui/layout";
 import { FaTrash, FaPen, FaCheckCircle } from "react-icons/fa";
 
+import { deleteTask, toggle, editTask } from "../utils/storage";
+
 const Task = ({ task }) => {
   const toast = useToast();
 
   const handleDelete = (id) => {
+    deleteTask(id);
     toast({
       title: "Success",
       description: "Task Removed",
@@ -16,9 +19,26 @@ const Task = ({ task }) => {
     });
   };
 
-  const handleComplete = (id) => {};
+  const handleComplete = (id) => {
+    toggle(id);
+    toast({
+      title: "Success",
+      description: "Task Completed",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
 
-  const handleEdit = (id) => {};
+  const handleEdit = (id) => {
+    toast({
+      title: "Success",
+      description: "Task Updated",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
 
   return (
     <Flex
