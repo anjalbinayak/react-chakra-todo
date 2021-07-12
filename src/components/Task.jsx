@@ -3,7 +3,7 @@ import { Button, Text } from "@chakra-ui/react";
 import { Flex, Box } from "@chakra-ui/layout";
 import { FaTrash, FaPen, FaCheckCircle } from "react-icons/fa";
 
-const Task = ({ task, onDelete, onToggle }) => {
+const Task = ({ task, onDelete, onToggle, onEdit }) => {
   return (
     <Flex
       direction="column"
@@ -14,15 +14,15 @@ const Task = ({ task, onDelete, onToggle }) => {
       <Box width="100%" d="flex" p={2}>
         <Text as={task.status === "complete" ? "s" : ""}> {task.name} </Text>
         <span>
-          {/* <Button
+          <Button
             colorScheme="twitter"
-            onClick={() => handleEdit(task.id)}
+            onClick={() => onEdit(task.id, task.name)}
             rounded={50}
             ml={3}
             size="xs"
           >
             <FaPen />
-          </Button> */}
+          </Button>
           <Button
             colorScheme="teal"
             onClick={() => onToggle(task.id)}
