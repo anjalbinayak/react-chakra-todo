@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Flex } from "@chakra-ui/layout";
 import Task from "./Task";
-
+import { getTasks } from "../utils/storage";
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // setTasks(JSON.parse(localStorage.getItem("tasks")));
+    // setTasks(getTasks());
   });
 
   //this will be changed
