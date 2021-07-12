@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-chakra-todo/static/css/main.a617e044.chunk.css",
+    "main.js": "/react-chakra-todo/static/js/main.49be12ae.chunk.js",
+    "main.js.map": "/react-chakra-todo/static/js/main.49be12ae.chunk.js.map",
+    "runtime-main.js": "/react-chakra-todo/static/js/runtime-main.b8c9e360.js",
+    "runtime-main.js.map": "/react-chakra-todo/static/js/runtime-main.b8c9e360.js.map",
+    "static/js/2.92140c22.chunk.js": "/react-chakra-todo/static/js/2.92140c22.chunk.js",
+    "static/js/2.92140c22.chunk.js.map": "/react-chakra-todo/static/js/2.92140c22.chunk.js.map",
+    "index.html": "/react-chakra-todo/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/react-chakra-todo/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.92140c22.chunk.js.LICENSE.txt": "/react-chakra-todo/static/js/2.92140c22.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8c9e360.js",
+    "static/js/2.92140c22.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.49be12ae.chunk.js"
+  ]
+}
