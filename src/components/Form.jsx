@@ -1,24 +1,11 @@
 import React from "react";
-
 import { Flex } from "@chakra-ui/layout";
 import { Input, Button, useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import { addTask } from "../utils/storage";
 
-const Form = () => {
+const Form = ({ onAdd }) => {
   const [taskName, setTaskName] = useState("");
   const toast = useToast();
-
-  function handleCreateTask() {
-    addTask(taskName);
-    toast({
-      title: "Success",
-      description: "New Task Created",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-  }
 
   return (
     <Flex>
@@ -35,7 +22,10 @@ const Form = () => {
 
       <Button
         colorScheme="teal"
-        onClick={handleCreateTask}
+        onClick={() => {
+          onAdd(taskName);
+          setTaskName(" ");
+        }}
         disabled={taskName.length === 0}
         type="submit"
       >
