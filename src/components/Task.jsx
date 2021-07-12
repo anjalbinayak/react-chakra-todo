@@ -14,13 +14,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
       <Box width="100%" d="flex" p={2}>
         <Text as={task.status === "complete" ? "s" : ""}> {task.name} </Text>
         <span>
-          <Button
-            colorScheme="twitter"
-            onClick={() => onEdit(task.id, task.name)}
-            rounded={50}
-            ml={3}
-            size="xs"
-          >
+          <Button colorScheme="twitter" rounded={50} ml={3} size="xs">
             <FaPen />
           </Button>
           <Button

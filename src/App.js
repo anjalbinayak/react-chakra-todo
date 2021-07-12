@@ -102,7 +102,7 @@ function App() {
           Task Manager
         </Heading>
 
-        <Form onAdd={handleAdd} onEdit={handleEdit} tasks={tasks} />
+        <Form onAdd={handleAdd} tasks={tasks} />
         <Tasks
           tasks={tasks}
           onDelete={handleDelete}

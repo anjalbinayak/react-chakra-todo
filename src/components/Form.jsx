@@ -1,17 +1,10 @@
 import React from "react";
 import { Flex } from "@chakra-ui/layout";
-import { Input, Button, useToast } from "@chakra-ui/react";
+import { Input, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
-const Form = ({ onAdd, onEdit, tasks }) => {
+const Form = ({ onAdd }) => {
   const [taskName, setTaskName] = useState("");
-
-  const [id, setId] = useState(0);
-
-  const editHandler = (taskId, name) => {
-    setId(taskId);
-    setTaskName(name);
-  };
 
   return (
     <Flex>
@@ -30,8 +23,7 @@ const Form = ({ onAdd, onEdit, tasks }) => {
       <Button
         colorScheme="teal"
         onClick={() => {
-          if (id === 0) onAdd(taskName);
-          else onEdit(id, taskName);
+          onAdd(taskName);
           setTaskName("");
         }}
         disabled={taskName.length === 0}
