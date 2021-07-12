@@ -14,6 +14,7 @@ const Form = ({ onAdd }) => {
         onChange={(e) => {
           setTaskName(e.target.value);
         }}
+        value={taskName}
         type="text"
         vairant="filled"
         mb={3}
@@ -24,7 +25,7 @@ const Form = ({ onAdd }) => {
         colorScheme="teal"
         onClick={() => {
           onAdd(taskName);
-          setTaskName(" ");
+          setTaskName("");
         }}
         disabled={taskName.length === 0}
         type="submit"
