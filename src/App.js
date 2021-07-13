@@ -88,7 +88,7 @@ function App() {
   return (
     <Flex direction="column" alignContent="center" alignItems="center">
       <Button onClick={toggleTheme}>
-        Toggle {theme === "light" ? <FaMoon /> : <FaSun />}
+        {theme === "light" ? <FaMoon /> : <FaSun />}
       </Button>
       <Flex direction="column">
         <Heading
