@@ -10,7 +10,7 @@ export const addTodo = async (req, res) => {
 
   const newTodo = await todo.save();
 
-  res.status(201).json(newTodo);
+  res.status(201).json({ newTodo, message: 'New Task Added' });
 };
 
 export const deleteTodo = async (req, res, next) => {
@@ -18,27 +18,15 @@ export const deleteTodo = async (req, res, next) => {
 
   if (todo) {
     await todo.remove();
-    res.json({ message: 'Todo removed' });
+    res.json({ message: 'Task removed' });
   } else {
     res.status(404).json({ message: 'Todo not found' });
   }
 };
-
-export const setTodoAsComplete = async (req, res) => {
+export const toggleStatus = async (req, res) => {
   const todo = await Todo.findById(req.params.id);
   if (todo) {
-    todo.status = true;
-    const updatedTodo = await todo.save();
-    res.status(200).json(updatedTodo);
-  } else {
-    res.status(404).json({ message: 'Todo not found' });
-  }
-};
-
-export const setTodoAsIncomplete = async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
-  if (todo) {
-    todo.status = false;
+    todo.status = !todo.status;
     const updatedTodo = await todo.save();
     res.status(200).json(updatedTodo);
   } else {

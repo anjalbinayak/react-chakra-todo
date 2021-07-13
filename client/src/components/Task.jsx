@@ -1,12 +1,12 @@
-import React from "react";
-import { Button, Text } from "@chakra-ui/react";
-import { Flex, Box } from "@chakra-ui/layout";
-import { FaTrash, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import React from 'react';
+import { Button, Text } from '@chakra-ui/react';
+import { Flex, Box } from '@chakra-ui/layout';
+import { FaTrash, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
-import { useColorModeValue } from "@chakra-ui/color-mode";
+import { useColorModeValue } from '@chakra-ui/color-mode';
 
 const Task = ({ task, onDelete, onToggle }) => {
-  const flexBg = useColorModeValue("gray.100", "gray.700");
+  const flexBg = useColorModeValue('gray.100', 'gray.700');
 
   return (
     <Flex
@@ -17,20 +17,20 @@ const Task = ({ task, onDelete, onToggle }) => {
       m={1}
     >
       <Box width="100%" d="flex" p={2}>
-        <Text as={task.status === "complete" ? "s" : ""}> {task.name} </Text>
+        <Text as={task.status === true ? 's' : ''}> {task.name} </Text>
         <span>
           <Button
             colorScheme="teal"
-            onClick={() => onToggle(task.id)}
+            onClick={() => onToggle(task._id)}
             ml={1}
             rounded={50}
             size="xs"
           >
-            {task.status === "complete" ? <FaTimesCircle /> : <FaCheckCircle />}
+            {task.status === true ? <FaTimesCircle /> : <FaCheckCircle />}
           </Button>
           <Button
             colorScheme="red"
-            onClick={() => onDelete(task.id)}
+            onClick={() => onDelete(task._id)}
             rounded={50}
             ml={1}
             size="xs"

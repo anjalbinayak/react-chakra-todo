@@ -3,15 +3,13 @@ import {
   getTodos,
   deleteTodo,
   addTodo,
-  setTodoAsComplete,
-  setTodoAsIncomplete,
+  toggleStatus,
 } from '../controllers/todoControllers.js';
 
 const router = express.Router();
 
 router.route('/').get(getTodos).post(addTodo);
 router.route('/:id').delete(deleteTodo);
-router.route('/complete/:id').put(setTodoAsComplete);
-router.route('/incomplete/:id').put(setTodoAsIncomplete);
+router.route('/setStatus/:id').put(toggleStatus);
 
 export default router;
