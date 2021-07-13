@@ -1,13 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Flex, Heading } from "@chakra-ui/react";
-import { useColorMode, Button } from "@chakra-ui/react";
-import { useToast } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  useColorMode,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
+
+import { FaMoon, FaSun } from "react-icons/fa";
+import { v4 as uuidv4 } from "uuid";
 import Form from "./components/Form";
 import Tasks from "./components/Tasks";
-import { v4 as uuidv4 } from "uuid";
-
-import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -34,15 +38,6 @@ function App() {
       duration: 3000,
       isClosable: true,
     });
-  };
-
-  const handleEdit = (id, name) => {
-    setTasks(
-      tasks.map(function (task) {
-        if (task.id === id) task.name = name;
-        return task;
-      })
-    );
   };
 
   const handleAdd = (name) => {
@@ -88,28 +83,24 @@ function App() {
     });
   };
 
-  const { toggleTheme } = useColorMode();
+  const { theme, toggleTheme } = useColorMode();
 
   return (
     <Flex direction="column" alignContent="center" alignItems="center">
+      <Button onClick={toggleTheme}>
+        Toggle {theme === "light" ? <FaMoon /> : <FaSun />}
+      </Button>
       <Flex direction="column">
         <Heading
           mb={2}
           bgGradient="linear(to-r,cyan.400,blue.500,purple.600)"
           bgClip="text"
         >
-          {" "}
           Task Manager
         </Heading>
 
         <Form onAdd={handleAdd} tasks={tasks} />
-        <Tasks
-          tasks={tasks}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-          onToggle={handleToggle}
-        />
-        <Button onClick={toggleTheme}>Toggle Theme</Button>
+        <Tasks tasks={tasks} onDelete={handleDelete} onToggle={handleToggle} />
       </Flex>
     </Flex>
   );

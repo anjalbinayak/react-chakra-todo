@@ -1,13 +1,18 @@
 import React from "react";
 import { Button, Text } from "@chakra-ui/react";
 import { Flex, Box } from "@chakra-ui/layout";
-import { FaTrash, FaPen, FaCheckCircle } from "react-icons/fa";
+import { FaTrash, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
-const Task = ({ task, onDelete, onToggle, onEdit }) => {
+import { useColorModeValue } from "@chakra-ui/color-mode";
+
+const Task = ({ task, onDelete, onToggle }) => {
+  const flexBg = useColorModeValue("gray.100", "gray.700");
+
   return (
     <Flex
       direction="column"
-      bgGradient="linear(to-r,gray.100,gray.200,gray.300)"
+      // bgGradient="linear(to-r,gray.100,gray.200,gray.300)"
+      background={flexBg}
       rounded={5}
       m={1}
     >
@@ -21,7 +26,7 @@ const Task = ({ task, onDelete, onToggle, onEdit }) => {
             rounded={50}
             size="xs"
           >
-            <FaCheckCircle />
+            {task.status === "complete" ? <FaTimesCircle /> : <FaCheckCircle />}
           </Button>
           <Button
             colorScheme="red"
